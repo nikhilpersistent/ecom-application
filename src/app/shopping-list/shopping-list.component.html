@@ -1,3 +1,14 @@
+<h3>Add Item </h3>
+<form (ngSubmit)="addItem()">
+    <div class="row">
+        <div class="col-lg-4">
+            <input type="text" class="form-control" [(ngModel)]="newShoppingItem.name" name="itemName">
+        </div>
+        <br>
+        <button class="btn btn-primary float-right" type="submit">Submit</button>
+    </div>
+</form>
+<br>
 <h3>Product List</h3> <br>
 <div class="row">
     <div class="col-lg-4" *ngFor="let items of shoppingItems$ |async">
@@ -5,10 +16,10 @@
             <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
             <div class="card-body">
                 <h5 class="card-title">{{items.name}}</h5>
-                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
-                    card's
-                    content.</p>
-                <a class="btn btn-primary float-right">Details</a>
+                <p class="card-text">This is awesome phone buy it now.</p>
+
+                <!-- <a class="btn btn-primary float-right">Details</a>  -->
+                <a class="btn  btn-outline-danger float-right" (click)="removeCard(items.id)"> Delete</a>
             </div>
         </div><br>
     </div>
