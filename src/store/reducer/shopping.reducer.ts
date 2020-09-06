@@ -9,6 +9,14 @@ const initialState: Array<ShoppingItem> = [
     {
         id: "1123-43-dewqvfr",
         name: "Moto G-34"
+    },
+    {
+        id: "2323-QE43-dewqvfr",
+        name: "Samsung I-9"
+    },
+    {
+        id: "$AWEA-43-dewqvfr",
+        name: "Apple-i-10"
     }
 ]
 

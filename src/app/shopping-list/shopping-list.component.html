@@ -1,0 +1,15 @@
+<h3>Product List</h3> <br>
+<div class="row">
+    <div class="col-lg-4" *ngFor="let items of shoppingItems$ |async">
+        <div class="card" style="width: 20rem;">
+            <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+            <div class="card-body">
+                <h5 class="card-title">{{items.name}}</h5>
+                <p class="card-text">Some quick example text to build on the card title and make up the bulk of the
+                    card's
+                    content.</p>
+                <a class="btn btn-primary float-right">Details</a>
+            </div>
+        </div><br>
+    </div>
+</div>
