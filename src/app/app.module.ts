@@ -6,6 +6,8 @@ import { StoreModule } from '@ngrx/store';
 import { ShoppingReducer } from 'src/store/reducer/shopping.reducer';
 import { ShoppingListComponent } from './shopping-list/shopping-list.component';
 import { LoginComponent } from './login/login.component';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { RouterModule } from '@angular/router';
 
 @NgModule({
   declarations: [
@@ -15,6 +17,8 @@ import { LoginComponent } from './login/login.component';
   ],
   imports: [
     BrowserModule,
+    RouterModule,
+    AppRoutingModule,
     FormsModule,
     StoreModule.forRoot({
       shopping:ShoppingReducer
