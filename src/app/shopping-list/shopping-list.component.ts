@@ -27,6 +27,7 @@ export class ShoppingListComponent implements OnInit {
     this.store.dispatch(new AddItemAction(this.newShoppingItem));
     this.newShoppingItem = { id: '', name: '' };
   }
+
   removeCard(id: string): void {
     this.store.dispatch(new DeleteItemAction(id));
   }
