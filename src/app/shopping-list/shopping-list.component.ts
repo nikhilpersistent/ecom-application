@@ -19,7 +19,7 @@ export class ShoppingListComponent implements OnInit {
   constructor(private store: Store<AppState>) { }
 
   ngOnInit(): void {
-    this.shoppingItems$ = this.store.select(store => store.shopping);
+    this.shoppingItems$ = this.store.select(store => store.shopping.list);
   }
 
   addItem(): void {
@@ -27,7 +27,6 @@ export class ShoppingListComponent implements OnInit {
     this.store.dispatch(new AddItemAction(this.newShoppingItem));
     this.newShoppingItem = { id: '', name: '' };
   }
-
   removeCard(id: string): void {
     this.store.dispatch(new DeleteItemAction(id));
   }
