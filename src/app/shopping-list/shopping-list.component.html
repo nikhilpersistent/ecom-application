@@ -4,6 +4,10 @@
 <p-toast position="top-right" key="3"></p-toast>
 <button pButton type="button" label="Logout" class="ui-button-secondary" routerLink='/login' style="float: right;">
 </button>
+<button pButton type="button" [label]="toggleView?'Table view':'Card view' " class="ui-button-secondary"
+    (click)="onToggleView()" style="float: right;">
+
+</button>
 <div class="container">
     <br>
     <h5>Add Mobile Wishlist </h5>
@@ -25,7 +29,7 @@
 
 </div>
 
-<div class="p-grid">
+<div class="p-grid" *ngIf="toggleView">
     <div class="p-col-4" *ngFor="let items of shoppingItems$ | async">
         <p-card header="{{items.name}}" styleClass="ui-card-shadow">
             <div>
@@ -39,4 +43,8 @@
             </p-footer>
         </p-card> <br>
     </div>
+</div>
+
+<div *ngIf='!toggleView'>
+    grid view
 </div>
