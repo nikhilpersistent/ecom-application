@@ -1,16 +1,16 @@
 {
   "shopping": [
     {
-      "id": "a3dd04bf-9062-40f7-9a6e-a6794e442c4b",
-      "name": "Apple-22"
-    },
-    {
       "id": "22c49e1f-fe61-4bf2-9583-d4af702628e4",
       "name": "Apple-20"
     },
     {
-      "id": "f1744228-df5c-4086-94f5-ad5a5c16220e",
-      "name": "Apple-20"
+      "id": "d4b81e13-17ff-4d2a-8f27-58d49aecf1a3",
+      "name": "Samsung-G6"
+    },
+    {
+      "id": "971f4cb9-9fd1-448d-a97b-ce1fb59032c7",
+      "name": "Moto-G-11"
     }
   ]
 }

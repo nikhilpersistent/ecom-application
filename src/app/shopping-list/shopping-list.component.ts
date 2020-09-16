@@ -18,6 +18,7 @@ export class ShoppingListComponent implements OnInit {
   newShoppingItem: ShoppingItem = { id: '', name: '' }
   error$: Observable<Error>;
   toggleView:boolean=true;
+  cars: any;
 
   constructor(private store: Store<AppState>) { }
 
@@ -35,6 +36,9 @@ export class ShoppingListComponent implements OnInit {
   }
   removeCard(id: string): void {
     this.store.dispatch(new DeleteItemAction(id));
+  }
+  removeCardTable(ud) {
+    alert(ud);
   }
 
   onToggleView() {

@@ -1,50 +1,81 @@
-<!-- <button type="submit" class="btn btn-outline-primary float-right logout-margin">Logout</button> -->
-<p-toast position="top-right" key="1"></p-toast>
-<p-toast position="top-right" key="2"></p-toast>
-<p-toast position="top-right" key="3"></p-toast>
-<button pButton type="button" label="Logout" class="ui-button-secondary" routerLink='/login' style="float: right;">
-</button>
-<button pButton type="button" [label]="toggleView?'Table view':'Card view' " class="ui-button-secondary"
-    (click)="onToggleView()" style="float: right;">
+<div class="p-grid">
+    <div class="p-col-3" style="height:100vh;background: #007bff;">
+        <h2 style="color: #fff;margin-top: 80%;text-align: center;">NGRX Application</h2>
+    </div>
 
-</button>
-<div class="container">
-    <br>
-    <h5>Add Mobile Wishlist </h5>
+    <div class="p-col-8" style="padding-left: 2%;">
+        <p-toast position="top-right" key="1"></p-toast>
+        <p-toast position="top-right" key="2"></p-toast>
+        <p-toast position="top-right" key="3"></p-toast>
+        <button pButton type="button" label="Logout" class="ui-button-secondary" routerLink='/login'
+            style="float: right;">
+        </button>
+        <button pButton type="button" [label]="toggleView?'Table view':'Card view' " class="ui-button-secondary"
+            (click)="onToggleView()" style="float: right;">
 
-    <form (ngSubmit)="addItem()">
-        <div class="row">
-            <div class="col-lg-4">
-                <input type="text" pInputText placeholder="Please eneter mobile wish" [(ngModel)]="newShoppingItem.name"
-                    name="itemName" />
-
-            </div>
+        </button>
+        <div>
             <br>
-            <!-- <button class="btn btn-primary float-right" type="submit">Submit</button> -->
-            <button pButton type="button" label="Submit" type="submit"> </button>
+            <h3>Add Mobile Wishlist </h3>
+
+            <form (ngSubmit)="addItem()">
+                <div class="p-grid">
+                    <div class="p-col-8">
+                        <input type="text" pInputText size="25" placeholder="Please enter mobile name"
+                            [(ngModel)]="newShoppingItem.name" name="itemName" />
+                    </div>
+                    <br>
+                </div>
+                <button pButton type="button" label="Submit" type="submit"> </button>
+            </form>
+            <br><br>
         </div>
-    </form>
-    <br>
-    <!-- <h5>My Mobile wishlist</h5>  -->
 
-</div>
-
-<div class="p-grid" *ngIf="toggleView">
-    <div class="p-col-4" *ngFor="let items of shoppingItems$ | async">
-        <p-card header="{{items.name}}" styleClass="ui-card-shadow">
-            <div>
-                Awesome phone buy it now!!
-                <br>
-                <button pButton type="button" label="Delete" style="float: right;" class="ui-button-secondary"
-                    (click)="removeCard(items.id)"></button>
-                <br>
+        <div class="p-grid" *ngIf="toggleView">
+            <div class="p-col-4" *ngFor="let items of shoppingItems$ | async">
+                <p-card header="{{items.name}}" styleClass="ui-card-shadow">
+                    <div>
+                        Awesome phone buy it now!!
+                        <br>
+                        <button pButton type="button" label="Delete" style="float: right;" class="ui-button-secondary"
+                            (click)="removeCard(items.id)"></button>
+                        <br>
+                    </div>
+                    <p-footer>
+                    </p-footer>
+                </p-card> <br>
             </div>
-            <p-footer>
-            </p-footer>
-        </p-card> <br>
+        </div>
+
+        <div *ngIf="!toggleView;">
+            <p-table [value]=" shoppingItems$ | async">
+                <ng-template pTemplate="header">
+                    <tr>
+                        <th>Name</th>
+                        <th>Description</th>
+                        <th>Delete</th>
+                    </tr>
+                </ng-template>
+                <ng-template pTemplate="body" let-items>
+                    <tr>
+                        <td>{{items.name}}</td>
+                        <td>This is awsome product!!!</td>
+
+                        <td>
+                            <i (click)="removeCard(items.id)" class="pi pi-trash" style="font-size: 1em"></i>
+                        </td>
+                    </tr>
+                </ng-template>
+            </p-table>
+        </div>
     </div>
 </div>
 
-<div *ngIf='!toggleView'>
-    grid view
-</div>
+<!-- <div class="p-grid">
+    <div class="p-col-4">
+        <div class="box">1</div>
+    </div>
+    <div class="p-col-8">
+        <div class="box">2</div>
+    </div>
+</div> -->
