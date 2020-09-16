@@ -1,4 +1,9 @@
-<button type="submit" class="btn btn-outline-primary float-right logout-margin" routerLink='/login'>Logout</button>
+<!-- <button type="submit" class="btn btn-outline-primary float-right logout-margin">Logout</button> -->
+<p-toast position="top-right" key="1"></p-toast>
+<p-toast position="top-right" key="2"></p-toast>
+<p-toast position="top-right" key="3"></p-toast>
+<button pButton type="button" label="Logout" class="ui-button-secondary" routerLink='/login' style="float: right;">
+</button>
 <div class="container">
     <br>
     <h5>Add Mobile Wishlist </h5>
@@ -6,24 +11,32 @@
     <form (ngSubmit)="addItem()">
         <div class="row">
             <div class="col-lg-4">
-                <input type="text" placeholder="Please eneter mobile wish" class="form-control" [(ngModel)]="newShoppingItem.name" name="itemName">
+                <input type="text" pInputText placeholder="Please eneter mobile wish" [(ngModel)]="newShoppingItem.name"
+                    name="itemName" />
+
             </div>
             <br>
-            <button class="btn btn-primary float-right" type="submit">Submit</button>
+            <!-- <button class="btn btn-primary float-right" type="submit">Submit</button> -->
+            <button pButton type="button" label="Submit" type="submit"> </button>
         </div>
     </form>
     <br>
     <!-- <h5>My Mobile wishlist</h5>  -->
-    <div class="row">
-        <div class="col-lg-4" *ngFor="let items of shoppingItems$ |async">
-            <div class="card" style="width: 20rem;">
-                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
-                <div class="card-body">
-                    <h5 class="card-title">{{items.name}}</h5>
-                    <p class="card-text">This is awesome phone buy it now.</p>
-                    <a class="btn  btn-outline-danger float-right" (click)="removeCard(items.id)"> Delete</a>
-                </div>
-            </div><br>
-        </div>
+
+</div>
+
+<div class="p-grid">
+    <div class="p-col-4" *ngFor="let items of shoppingItems$ | async">
+        <p-card header="{{items.name}}" styleClass="ui-card-shadow">
+            <div>
+                Awesome phone buy it now!!
+                <br>
+                <button pButton type="button" label="Delete" style="float: right;" class="ui-button-secondary"
+                    (click)="removeCard(items.id)"></button>
+                <br>
+            </div>
+            <p-footer>
+            </p-footer>
+        </p-card> <br>
     </div>
 </div>

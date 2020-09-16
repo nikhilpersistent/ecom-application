@@ -1,5 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormsModule } from '@angular/forms';
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from './app.component';
@@ -13,7 +14,11 @@ import { StoreDevtoolsModule } from '@ngrx/store-devtools';
 import { environment } from '../environments/environment';
 import { EffectsModule } from '@ngrx/effects';
 import { ShoppingEffects } from 'src/store/effects/shopping.effects';
-
+import { CardModule } from 'primeng/card';
+import { ButtonModule } from 'primeng/button';
+import { InputTextModule } from 'primeng/inputtext';
+import { ToastModule } from 'primeng/toast';
+import { MessageService } from 'primeng/api';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,6 +27,7 @@ import { ShoppingEffects } from 'src/store/effects/shopping.effects';
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     RouterModule,
     AppRoutingModule,
     HttpClientModule,
@@ -30,9 +36,13 @@ import { ShoppingEffects } from 'src/store/effects/shopping.effects';
       shopping: ShoppingReducer
     }),
     EffectsModule.forRoot([ShoppingEffects]),
-    StoreDevtoolsModule.instrument({ maxAge: 25, logOnly: environment.production })
+    StoreDevtoolsModule.instrument({ name: 'eCom Application', maxAge: 25, logOnly: environment.production }),
+    CardModule,
+    ButtonModule,
+    InputTextModule,
+    ToastModule,
   ],
-  providers: [],
+  providers: [MessageService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

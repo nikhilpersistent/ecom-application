@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import { Store } from '@ngrx/store'
+import { Store } from '@ngrx/store';
+
 import { AppState } from 'src/store/models/app.state.model';
 import { v4 as uuid } from "uuid";
 import { Observable } from 'rxjs';
@@ -22,13 +23,13 @@ export class ShoppingListComponent implements OnInit {
   ngOnInit(): void {
 
     this.shoppingItems$ = this.store.select(store => store.shopping.list);
-    this.error$ = this.store.select(store => store.shopping.error);
+    this.error$ = this.store.select(store => store.shopping.error);    
     this.store.dispatch(new LoadShoppingAction());
   }
 
   addItem(): void {
     this.newShoppingItem.id = uuid();
-    this.store.dispatch(new AddItemAction(this.newShoppingItem));
+    this.store.dispatch(new AddItemAction(this.newShoppingItem))
     this.newShoppingItem = { id: '', name: '' };
   }
   removeCard(id: string): void {
