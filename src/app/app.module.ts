@@ -20,11 +20,13 @@ import { InputTextModule } from 'primeng/inputtext';
 import { ToastModule } from 'primeng/toast';
 import { MessageService } from 'primeng/api';
 import { TableModule } from 'primeng/table';
+import { AgGridComponent } from './ag-grid/ag-grid.component';
 @NgModule({
   declarations: [
     AppComponent,
     ShoppingListComponent,
-    LoginComponent
+    LoginComponent,
+    AgGridComponent
   ],
   imports: [
     BrowserModule,

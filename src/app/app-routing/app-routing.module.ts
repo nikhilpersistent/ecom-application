@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router'; 
 import { LoginComponent } from '../login/login.component';
 import { ShoppingListComponent } from '../shopping-list/shopping-list.component';
+import { AgGridComponent } from '../ag-grid/ag-grid.component';
 
 const routes:Routes = [
   
@@ -21,6 +22,10 @@ const routes:Routes = [
   {
     path:'list',
     component:ShoppingListComponent
+  },
+  {
+    path:'ag-grid',
+    component:AgGridComponent
   }
   
   
